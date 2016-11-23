@@ -1,18 +1,23 @@
 #!/usr/bin/env node
 
-let co = require('co');
-let prompt = require('co-prompt');
-let program = require('commander');
+// Get input from the console.
+// let co = require( 'co' );
+// let prompt = require( 'co-prompt' );
+
+// Colorize output
+// let chalk = require( 'chalk' );
+// console.log( chalk.bold.cyan( 'Text: ' ) );
+
+let spawn = require( 'child_process' ).spawn;
+
+// Get command line options.
+let program = require( 'commander' );
 
 program
-    .arguments('<file>')
-    .option('-u, --username <username>', 'The user to authenticate as')
-    .option('-p, --password <password>', 'The user\'s password')
-    .action(function(file) {
-        co(function *() {
-            let username = yield prompt('username: ');
-            let password = yield prompt.password('password: ');
-            console.log('user: %s pass: %s file: %s', username, password, file);
-        });
-    })
-    .parse(process.argv);
+    .arguments( '' )
+    //.option( '-u, --username <username>', 'The user to authenticate as' )
+    .option( '-p, --path', 'Path' )
+    .action( function () {
+
+    } )
+    .parse( process.argv );
